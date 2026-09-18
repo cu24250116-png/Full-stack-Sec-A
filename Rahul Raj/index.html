@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full Stack Web Development Lab Submissions - Lab Sheet 01 & 02 by Rahul Raj">
+  <title>Full Stack Lab Submissions | Rahul Raj</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #0b0f19;
+      --bg-card: #151d2f;
+      --bg-card-hover: #1b253b;
+      --border: #1e293b;
+      --border-hover: #3b82f6;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #3b82f6;
+      --accent-glow: rgba(59, 130, 246, 0.4);
+      --success: #10b981;
+      --font: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 4rem;
+    }
+
+    /* Ambient Background Glow */
+    .ambient-glow {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 400px;
+      background: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.15), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Top Banner */
+    .top-banner {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .banner-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-badge {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+    }
+
+    .brand-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .student-badge-top {
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 0.4rem 0.9rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #93c5fd;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--success);
+    }
+
+    /* Hero Section */
+    .portal-hero {
+      text-align: center;
+      padding: 4rem 0 3rem;
+    }
+
+    .hero-pill {
+      display: inline-block;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #60a5fa;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 780px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .meta-metrics-bar {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .metric-chip {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .chip-icon {
+      font-size: 1.25rem;
+    }
+
+    .chip-content {
+      text-align: left;
+    }
+
+    .chip-lbl {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .chip-val {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Lab Sections */
+    .lab-section {
+      margin-top: 3.5rem;
+    }
+
+    .lab-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 1.75rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .lab-sheet-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 0.35rem;
+    }
+    .badge-sheet1 { background: #312e81; color: #c7d2fe; }
+    .badge-sheet2 { background: #064e3b; color: #a7f3d0; }
+
+    .lab-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+    }
+
+    .lab-syllabus {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      max-width: 500px;
+    }
+
+    /* Tasks Cards Grid */
+    .tasks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .task-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .task-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-hover);
+      box-shadow: 0 15px 30px -10px rgba(59, 130, 246, 0.25);
+    }
+
+    .task-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .task-id {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #60a5fa;
+      background: rgba(59, 130, 246, 0.12);
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    .task-status {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--success);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .task-name {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 0.65rem;
+      color: #ffffff;
+      line-height: 1.25;
+    }
+
+    .task-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+
+    .tech-stack-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-tag {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      color: #94a3b8;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.55rem;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+    }
+
+    .btn-launch {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #2563eb;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.8rem 1.25rem;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-launch:hover {
+      background: #1d4ed8;
+      box-shadow: 0 0 15px rgba(37, 99, 235, 0.6);
+    }
+
+    /* Footer */
+    .portal-footer {
+      margin-top: 5rem;
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.3rem;
+      }
+      .tasks-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- Top Banner -->
+  <header class="top-banner">
+    <div class="container banner-inner">
+      <div class="brand-group">
+        <div class="brand-badge">RR</div>
+        <div>
+          <span class="brand-title">Full Stack Lab Submissions</span>
+        </div>
+      </div>
+      <div class="student-badge-top">
+        <span class="status-dot"></span>
+        <span>Student: <strong>Rahul Raj</strong> &bull; All 6 Tasks Verified</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Intro -->
+  <main class="container">
+    <section class="portal-hero">
+      <span class="hero-pill">Academic Curriculum Evaluation Portal</span>
+      <h1 class="hero-title">Core Web Structures &amp; Dynamic Interactivity</h1>
+      <p class="hero-desc">
+        Comprehensive submission portfolio covering <strong>Lab Sheet 01</strong> (Semantic HTML5 structures, nested navigation, definition metadata) and <strong>Lab Sheet 02</strong> (CSS variables dark mode, fluid Flexbox photo grid, runtime append Todo app).
+      </p>
+
+      <div class="meta-metrics-bar">
+        <div class="metric-chip">
+          <span class="chip-icon">📄</span>
+          <div class="chip-content">
+            <span class="chip-lbl">Lab Sheets</span>
+            <span class="chip-val">01 &amp; 02 Completed</span>
+          </div>
+        </div>
+        <div class="metric-chip">
+          <span class="chip-icon">🎯</span>
+          <div class="chip-content">
+            <span class="chip-lbl">Syllabus Tasks</span>
+            <span class="chip-val">6 / 6 Implemented</span>
+          </div>
+        </div>
+        <div class="metric-chip">
+          <span class="chip-icon">♿</span>
+          <div class="chip-content">
+            <span class="chip-lbl">Accessibility</span>
+            <span class="chip-val">WCAG 2.1 Conformance</span>
+          </div>
+        </div>
+        <div class="metric-chip">
+          <span class="chip-icon">⚡</span>
+          <div class="chip-content">
+            <span class="chip-lbl">Architecture</span>
+            <span class="chip-val">Pure Vanilla Web Standards</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         LAB SHEET 01 SECTION
+         ==================================================================== -->
+    <section class="lab-section" id="lab-sheet-1">
+      <div class="lab-header">
+        <div>
+          <span class="lab-sheet-badge badge-sheet1">Lab Sheet 01</span>
+          <h2 class="lab-title">Core Web Structures Using Semantic HTML</h2>
+        </div>
+        <p class="lab-syllabus">
+          Primary Exercise: Write a program to create a simple webpage using HTML5. Incorporate standard header elements, dynamic text formatting anchors, and a main container block.
+        </p>
+      </div>
+
+      <div class="tasks-grid">
+        <!-- Task 1.1 -->
+        <article class="task-card">
+          <div class="task-top">
+            <span class="task-id">Task 1.1</span>
+            <span class="task-status">● Complete</span>
+          </div>
+          <h3 class="task-name">Semantic HTML Resume Page</h3>
+          <p class="task-desc">
+            Structured resume for Rahul Raj incorporating semantic layout blocks (<code class="code-tag">&lt;header&gt;</code>, <code class="code-tag">&lt;section&gt;</code>, <code class="code-tag">&lt;footer&gt;</code>, <code class="code-tag">&lt;main&gt;</code>) with full modern accessibility parameters, skip-link navigation, and print stylesheet.
+          </p>
+          <div class="tech-stack-list">
+            <span class="tech-tag">HTML5 Semantics</span>
+            <span class="tech-tag">ARIA Landmarks</span>
+            <span class="tech-tag">Print Styles</span>
+            <span class="tech-tag">WCAG 2.1</span>
+          </div>
+          <a href="Lab Sheet 1/task1_resume/index.html" class="btn-launch">
+            Launch Task 1.1 &rarr;
+          </a>
+        </article>
+
+        <!-- Task 1.2 -->
+        <article class="task-card">
+          <div class="task-top">
+            <span class="task-id">Task 1.2</span>
+            <span class="task-status">● Complete</span>
+          </div>
+          <h3 class="task-name">Nested Navigation Menu Bar</h3>
+          <p class="task-desc">
+            Hierarchical multi-level menu bar using structured list item anchors (<code class="code-tag">&lt;ul&gt;</code>, <code class="code-tag">&lt;li&gt;</code>, <code class="code-tag">&lt;a&gt;</code>) guaranteeing absolute path linking patterns to external resource addresses with keyboard focus navigation.
+          </p>
+          <div class="tech-stack-list">
+            <span class="tech-tag">Nested &lt;ul&gt;&lt;li&gt;</span>
+            <span class="tech-tag">Absolute URLs</span>
+            <span class="tech-tag">:focus-within</span>
+            <span class="tech-tag">Flyout Dropdowns</span>
+          </div>
+          <a href="Lab Sheet 1/task2_nested_nav/index.html" class="btn-launch">
+            Launch Task 1.2 &rarr;
+          </a>
+        </article>
+
+        <!-- Task 1.3 -->
+        <article class="task-card">
+          <div class="task-top">
+            <span class="task-id">Task 1.3</span>
+            <span class="task-status">● Complete</span>
+          </div>
+          <h3 class="task-name">Itemized Web Catalog</h3>
+          <p class="task-desc">
+            Itemized developer systems and cloud runtimes catalog interface presenting descriptive metadata terms via structured definition lists (<code class="code-tag">&lt;dl&gt;</code>, <code class="code-tag">&lt;dt&gt;</code>, <code class="code-tag">&lt;dd&gt;</code>) and client-side category filtering.
+          </p>
+          <div class="tech-stack-list">
+            <span class="tech-tag">&lt;dl&gt;&lt;dt&gt;&lt;dd&gt;</span>
+            <span class="tech-tag">Metadata Schema</span>
+            <span class="tech-tag">Card UI</span>
+            <span class="tech-tag">Search &amp; Filter</span>
+          </div>
+          <a href="Lab Sheet 1/task3_catalog/index.html" class="btn-launch">
+            Launch Task 1.3 &rarr;
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         LAB SHEET 02 SECTION
+         ==================================================================== -->
+    <section class="lab-section" id="lab-sheet-2">
+      <div class="lab-header">
+        <div>
+          <span class="lab-sheet-badge badge-sheet2">Lab Sheet 02</span>
+          <h2 class="lab-title">Dynamic Interface Styling &amp; Scripting Interactivity</h2>
+        </div>
+        <p class="lab-syllabus">
+          Primary Exercise: Write a program to create an interactive website using a combination of HTML layout nodes, external CSS stylesheets, and core JavaScript operational elements.
+        </p>
+      </div>
+
+      <div class="tasks-grid">
+        <!-- Task 2.1 -->
+        <article class="task-card">
+          <div class="task-top">
+            <span class="task-id">Task 2.1</span>
+            <span class="task-status">● Complete</span>
+          </div>
+          <h3 class="task-name">Clean Dark-Mode Landing Layout</h3>
+          <p class="task-desc">
+            Modern high-conversion landing page implementing custom styling overrides via CSS custom properties (<code class="code-tag">var(--theme-*)</code>) and an interactive toggler method in vanilla JavaScript with localStorage state persistence.
+          </p>
+          <div class="tech-stack-list">
+            <span class="tech-tag">CSS Variables</span>
+            <span class="tech-tag">Vanilla JS Toggler</span>
+            <span class="tech-tag">localStorage</span>
+            <span class="tech-tag">Live Inspector</span>
+          </div>
+          <a href="Lab Sheet 2/task1_dark_mode/index.html" class="btn-launch">
+            Launch Task 2.1 &rarr;
+          </a>
+        </article>
+
+        <!-- Task 2.2 -->
+        <article class="task-card">
+          <div class="task-top">
+            <span class="task-id">Task 2.2</span>
+            <span class="task-status">● Complete</span>
+          </div>
+          <h3 class="task-name">Responsive Flexbox Photo Grid</h3>
+          <p class="task-desc">
+            Responsive web gallery layout constructed using pure CSS Flexbox rules (<code class="code-tag">flex-wrap: wrap</code>) that wraps fluidly across mobile viewports, featuring multi-axis hovering transform animations, scale transforms, and overlays.
+          </p>
+          <div class="tech-stack-list">
+            <span class="tech-tag">CSS Flexbox</span>
+            <span class="tech-tag">Fluid Wrapping</span>
+            <span class="tech-tag">Hover Transforms</span>
+            <span class="tech-tag">Mobile Responsive</span>
+          </div>
+          <a href="Lab Sheet 2/task2_photo_grid/index.html" class="btn-launch">
+            Launch Task 2.2 &rarr;
+          </a>
+        </article>
+
+        <!-- Task 2.3 -->
+        <article class="task-card">
+          <div class="task-top">
+            <span class="task-id">Task 2.3</span>
+            <span class="task-status">● Complete</span>
+          </div>
+          <h3 class="task-name">Client-Side Interactive Todo App</h3>
+          <p class="task-desc">
+            Interactive task management application featuring dynamic runtime element append mechanisms (<code class="code-tag">document.createElement</code>) and operational validation error flags (empty detection, character thresholds, duplicate prevention).
+          </p>
+          <div class="tech-stack-list">
+            <span class="tech-tag">DOM Runtime Append</span>
+            <span class="tech-tag">Validation Error Flags</span>
+            <span class="tech-tag">Filter States</span>
+            <span class="tech-tag">Local Persistence</span>
+          </div>
+          <a href="Lab Sheet 2/task3_todo_app/index.html" class="btn-launch">
+            Launch Task 2.3 &rarr;
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Project Documentation Guide -->
+    <section class="task-card" style="margin-top: 3.5rem; background: #0f172a; border-color: #334155;">
+      <h3 style="font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.75rem;">
+        📂 Folder Structure &amp; Repository Submission Architecture
+      </h3>
+      <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1.25rem;">
+        This project has been structured inside the directory <code>Rahul Raj/</code> with dedicated folders for each lab sheet and task:
+      </p>
+      <pre style="background: #020617; border: 1px solid #1e293b; padding: 1.25rem; border-radius: 10px; font-family: var(--font-mono); font-size: 0.825rem; color: #38bdf8; overflow-x: auto;">
+Rahul Raj/
+├── index.html                                  (Showcase &amp; Evaluation Hub)
+├── README.md                                   (Documentation &amp; Verification Guide)
+├── Lab Sheet 1/
+│   ├── task1_resume/ (index.html, style.css)   (Task 1.1: Semantic HTML5 Resume)
+│   ├── task2_nested_nav/ (index.html, style.css) (Task 1.2: Nested Navigation Menu)
+│   └── task3_catalog/ (index.html, style.css)  (Task 1.3: Definition Lists Web Catalog)
+└── Lab Sheet 2/
+    ├── task1_dark_mode/ (index.html, style.css, script.js) (Task 2.1: CSS Variables Dark Mode)
+    ├── task2_photo_grid/ (index.html, style.css) (Task 2.2: Flexbox Photo Grid)
+    └── task3_todo_app/ (index.html, style.css, script.js)   (Task 2.3: Validation Flags Todo App)
+      </pre>
+    </section>
+  </main>
+
+  <footer class="portal-footer">
+    <div class="container">
+      <p>&copy; 2026 Rahul Raj &bull; Full Stack Lab Submissions &bull; Designed &amp; Engineered for Mentor Evaluation</p>
+    </div>
+  </footer>
+
+</body>
+</html>
