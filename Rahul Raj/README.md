@@ -1,9 +1,9 @@
-# Full Stack Web Development Lab Submissions (Labs 1 &ndash; 6)
+# Full Stack Web Development Lab Submissions (Labs 01 &ndash; 10)
 
 **Student Name:** Rahul Raj  
 **Roll / Student ID:** cu24250116  
 **Course:** Full Stack Web Development Laboratory (Sec-A)  
-**Submissions Included:** Lab Sheet 01, Lab Sheet 02, Lab Sheet 03, Lab Sheet 04, Lab Sheet 05, Lab Sheet 06  
+**Submissions Included:** Lab Sheet 01 through Lab Sheet 10  
 
 ---
 
@@ -11,7 +11,7 @@
 
 ```text
 Rahul Raj/
-├── index.html                                 # Central Evaluation & Showcase Hub (Labs 1-6)
+├── index.html                                 # Central Evaluation & Showcase Hub (Labs 1-10)
 ├── README.md                                  # Complete Technical Guide & Documentation
 │
 ├── Lab Sheet 1/                               # LAB SHEET 01: Core Web Structures Using Semantic HTML
@@ -27,179 +27,119 @@ Rahul Raj/
 ├── Lab Sheet 3/                               # LAB SHEET 03: Introduction to React.js
 │   ├── package.json, vite.config.js           # Vite + React 18 configuration
 │   ├── dist/                                  # Production built preview bundle
-│   └── src/
-│       ├── App.jsx                            # State & Effect persistence engine
-│       ├── components/
-│       │   ├── AddTaskForm.jsx                # Input form with operational validation flags
-│       │   ├── TaskList.jsx                   # Container mapping to child items
-│       │   ├── TaskItem.jsx                   # Single task element with status & actions
-│       │   ├── FilterTabs.jsx                 # Filter tab controls & count indicators
-│       │   ├── TaskMetrics.jsx                # Analytics & completion rate calculator
-│       │   └── ComponentTree.jsx              # Deliverable: Component Tree Diagram UI
-│       └── README.md                          # Architecture specs & Component Tree Diagram
+│   └── src/ (App.jsx, TaskList, TaskItem, AddTaskForm, FilterTabs, TaskMetrics, ComponentTree)
 │
 ├── Lab Sheet 4/                               # LAB SHEET 04: React Routing & State Management
 │   ├── package.json, vite.config.js           # Vite + React + react-router-dom
 │   ├── dist/                                  # Production built preview bundle
-│   └── src/
-│       ├── App.jsx                            # react-router-dom route declarations
-│       ├── context/
-│       │   └── StoreContext.jsx               # Context API Global State (Cart & Favorites)
-│       ├── data/
-│       │   └── products.js                    # Comprehensive developer hardware catalog
-│       ├── pages/
-│       │   ├── Home.jsx                       # 1. Landing Page
-│       │   ├── Products.jsx                   # 2. Products Catalog with filters & search
-│       │   ├── ProductDetails.jsx             # 3. Dynamic Route (:id params)
-│       │   └── NotFound.jsx                   # 4. Custom 404 Not Found Page
-│       └── components/
-│           ├── Navbar.jsx                     # Reactive badges for Cart & Favorites
-│           ├── ProductCard.jsx                # Reusable catalog card
-│           ├── CartDrawer.jsx                 # Global Cart Drawer modal
-│           └── LoadingSkeleton.jsx            # Deliverable: Loading state simulator
+│   └── src/ (StoreContext, Home, Products, ProductDetails, NotFound, CartDrawer, Navbar)
 │
 ├── Lab Sheet 5/                               # LAB SHEET 05: Form Validation & Controlled Inputs in React
 │   ├── package.json, vite.config.js           # Vite + React 18 configuration
 │   ├── dist/                                  # Production built preview bundle
-│   ├── README.md                              # Form validation & entropy documentation
-│   └── src/
-│       ├── App.jsx                            # Main container with tab switcher
-│       └── components/
-│           ├── LoginForm.jsx                  # Task 5.1: Real-time controlled inputs & regex validation
-│           ├── PasswordStrengthMeter.jsx      # Task 5.2: Shannon entropy calculator & progress bar
-│           ├── ValidationBadge.jsx            # Live dynamic requirement checklist badges
-│           ├── OnboardingWizard.jsx           # Task 5.3: 4-step registration wizard
-│           └── steps/
-│               ├── Step1Account.jsx           # Step 1: Account credentials
-│               ├── Step2Profile.jsx           # Step 2: Personal profile & avatar
-│               ├── Step3Preferences.jsx       # Step 3: Notification & UI preferences
-│               └── Step4Summary.jsx           # Step 4: Final verification overview
+│   └── src/ (LoginForm regex, PasswordStrengthMeter entropy, OnboardingWizard 4-step)
 │
-└── Lab Sheet 6/                               # LAB SHEET 06: Backend Infrastructure & Shell Scripting
-    ├── requirements.txt                       # Django, DRF, python-dotenv, flake8, black
-    ├── setup_environment.py                   # Task 6.1: Automated Python environment provisioner
-    ├── setup_environment.ps1                  # Task 6.1: Automated PowerShell provisioner
-    ├── deploy_check.py                        # Task 6.3: Automated pre-flight deployment diagnostic (8/8)
-    ├── README.md                              # Architecture specs & execution guide
-    ├── .vscode/                               # Task 6.2: IDE PEP8 & Quality Guardrails
-    │   ├── settings.json                      # Auto black format on save, flake8 linting, line length 88
-    │   ├── keybindings.json                   # Shortcuts for diagnostics, formatting, runserver
-    │   └── python.code-snippets               # Django & DRF reusable templates
-    └── django_project/                        # Minimal production Django backend
-        ├── manage.py                          # Administrative CLI entrypoint
-        ├── .env                               # Active environment variables
-        ├── .env.example                       # Environment template
-        └── core/
-            ├── __init__.py
-            ├── settings.py                    # Django core settings with dotenv integration
-            ├── urls.py                        # Route definitions with /api/health/ endpoint
-            ├── wsgi.py                        # WSGI server callable
-            └── asgi.py                        # ASGI server callable
+├── Lab Sheet 6/                               # LAB SHEET 06: Backend Infrastructure & Shell Scripting
+│   ├── requirements.txt, setup_environment.py, setup_environment.ps1 (Task 6.1)
+│   ├── .vscode/ (settings.json, keybindings.json, python.code-snippets - Task 6.2)
+│   ├── deploy_check.py (Task 6.3 - 8/8 Passed)
+│   └── django_project/ (manage.py, .env, core/settings.py, urls.py, wsgi.py)
+│
+├── Lab Sheet 7/                               # LAB SHEET 07: Django Model Collections & Filtering
+│   ├── manage.py, lab7_project/
+│   ├── catalog_app/ (models.py, views.py, urls.py, templates/catalog_app/index.html)
+│   │   ├── Unordered Item Matrix (Fruits Collection)
+│   │   ├── Ordered Indices (Selected Event Students Table)
+│   │   ├── Task 7.1: Fallback Condition Logic ({% if %})
+│   │   ├── Task 7.2: Dynamic Table Sorting (?sort=...&order=...)
+│   │   └── Task 7.3: Search Input Query Screening (?q=...)
+│   └── verify_lab7.py                         # Automated test suite (4/4 passed)
+│
+├── Lab Sheet 8/                               # LAB SHEET 08: Template Inheritance Blueprints
+│   ├── manage.py, lab8_project/
+│   ├── server.log                             # Task 8.3 Server log output
+│   ├── core/ (forms.py, views.py, urls.py)
+│   │   ├── templates/base.html                # Master blueprint layout
+│   │   ├── templates/home.html                # Specialized view override
+│   │   ├── templates/about.html               # Specialized view override
+│   │   └── templates/contact.html             # Contact Us verification view
+│   │       ├── Task 8.1: Programmatic Active Nav Markers (active utility highlight)
+│   │       ├── Task 8.2: Inherited Message Feedback Hook ({% block messages %})
+│   │       └── Task 8.3: Verified Feedback Text Logger (logging framework)
+│   └── verify_lab8.py                         # Automated test suite (5/5 passed)
+│
+├── Lab Sheet 9/                               # LAB SHEET 09: Student Record Management CRUD
+│   ├── package.json, server.js                # Express.js REST API
+│   ├── models/Student.js                      # Built-in SQLite persistence
+│   ├── students.sqlite                        # Pre-seeded database
+│   ├── api_test.js                            # Automated endpoint test runner (6/6 passed)
+│   └── public/index.html                      # Interactive CRUD single-page interface
+│       ├── POST /students (Add record with validation)
+│       ├── GET /students (Fetch all records)
+│       ├── GET /students/:id (Fetch single record)
+│       ├── PUT /students/:id (Update record)
+│       └── DELETE /students/:id (Delete record)
+│
+└── Lab Sheet 10/                              # LAB SHEET 10: CampusConnect Enterprise Portal
+    ├── docker-compose.yml                     # Multi-container orchestration
+    ├── benchmark.js                           # Redis latency benchmark (6.49x speedup)
+    ├── backend/                               # Express + Socket.io + JWT + Redis
+    │   ├── Dockerfile
+    │   ├── src/ (server.js, authRoutes, eventRoutes, announcementRoutes)
+    │   │   ├── Task 1: JWT Auth & RBAC (Admin, Student, 403 rejection)
+    │   │   ├── Task 2: Real-time WebSockets (Socket.io broadcasts)
+    │   │   ├── Task 3: Redis Caching (60s TTL & auto-invalidation)
+    │   │   └── Task 5: Security Hardening (Helmet, rate-limit 5/15min)
+    │   └── tests/integration.test.js          # Automated backend integration tests (6/6 passed)
+    └── frontend/                              # React 18 + Vite SPA
+        ├── Dockerfile (Multi-stage build)
+        ├── dist/ (Pre-compiled production bundle)
+        └── src/ (App.jsx, App.css, live notifications badge counter)
 ```
 
 ---
 
-## 🌳 Lab 3: Component Tree Diagram
+## 🧪 Comprehensive Verification Summary
 
-```mermaid
-graph TD
-    App["&lt;App /&gt; (useState, useEffect, localStorage)"]
-    App --> AddTaskForm["&lt;AddTaskForm /&gt; (Input &amp; Validation Flags)"]
-    App --> FilterTabs["&lt;FilterTabs /&gt; (Filter State Callbacks)"]
-    App --> TaskList["&lt;TaskList /&gt; (Props Delegation)"]
-    App --> TaskMetrics["&lt;TaskMetrics /&gt; (Computed Stats)"]
-    TaskList --> TaskItem["&lt;TaskItem /&gt; (Dynamic Item Row xN)"]
-
-    AddTaskForm -.->|onAddTask(newTodo)| App
-    FilterTabs -.->|onFilterChange(filter)| App
-    TaskItem -.->|onToggle(id) / onDelete(id)| TaskList
-    TaskList -.->|onToggleTask / onDeleteTask| App
-```
+| Lab Sheet | Title | Key Technology | Automated Test Suite | Test Result |
+| :--- | :--- | :--- | :--- | :--- |
+| **Lab 01** | Semantic HTML5 & A11y | HTML5 / CSS3 / W3C | Manual / Static Audit | ✅ 100% Passed |
+| **Lab 02** | Styling & Interactivity | CSS Variables, Flexbox, JS | Local Verification | ✅ 100% Passed |
+| **Lab 03** | Intro to React.js | React 18 + Vite | `npm run build` | ✅ Built in `dist/` |
+| **Lab 04** | SPA Routing & State | react-router-dom v6 | `npm run build` | ✅ Built in `dist/` |
+| **Lab 05** | Form Validation & Wizard | React Controlled Inputs | `npm run build` | ✅ Built in `dist/` |
+| **Lab 06** | Backend Tooling & PEP8 | Python, Django, Flake8 | `deploy_check.py` | ✅ **8/8 Passed** |
+| **Lab 07** | Model Collections & Sort | Django 6.0 Templates | `verify_lab7.py` | ✅ **4/4 Passed** |
+| **Lab 08** | Template Inheritance | Django Blueprints & Logging | `verify_lab8.py` | ✅ **5/5 Passed** |
+| **Lab 09** | Student Record CRUD | Express.js + SQLite REST | `api_test.js` | ✅ **6/6 Passed** |
+| **Lab 10** | CampusConnect Portal | JWT, Socket.io, Redis, Docker | `integration.test.js` + `benchmark.js` | ✅ **6/6 Passed (6.49x speedup)** |
 
 ---
 
-## 🗺️ Lab 4: SPA Routing & State Flow Architecture
+## 🚀 How to Run & Verify Any Lab
 
-```mermaid
-graph TD
-    User([User Browser]) --> App["&lt;App /&gt; (StoreProvider)"]
-    App --> Navbar["&lt;Navbar /&gt; (Live Cart &amp; Favorite Badges)"]
-    App --> Routes["&lt;Routes&gt;"]
+### Open Central Portal Hub
+Open `Rahul Raj/index.html` in your web browser to launch and test any of the 10 lab deliverables.
 
-    Routes -->|Path: '/'| Home["&lt;Home /&gt;"]
-    Routes -->|Path: '/products'| Products["&lt;Products /&gt;"]
-    Routes -->|Path: '/products/:id'| ProductDetails["&lt;ProductDetails /&gt; (useParams)"]
-    Routes -->|Path: '*'| NotFound["&lt;NotFound /&gt; (404 Fallback)"]
-
-    StoreContext[("StoreContext (Global Cart &amp; Favorites)")] -.-> Navbar
-    StoreContext -.-> Home
-    StoreContext -.-> Products
-    StoreContext -.-> ProductDetails
-    StoreContext -.-> CartDrawer["&lt;CartDrawer /&gt;"]
-```
-
----
-
-## 🔐 Lab 5: Form Validation & Registration Wizard
-
-```mermaid
-graph LR
-    User([Candidate Input]) --> Login["&lt;LoginForm /&gt;"]
-    Login --> RegexCheck{"Regex &amp; Rules Audit"}
-    RegexCheck --> Badges["&lt;ValidationBadge /&gt; (Live Feedback)"]
-    RegexCheck --> Entropy["&lt;PasswordStrengthMeter /&gt; (Score 0-100%)"]
-
-    User --> Wizard["&lt;OnboardingWizard /&gt;"]
-    Wizard --> S1["Step 1: Account"]
-    Wizard --> S2["Step 2: Profile"]
-    Wizard --> S3["Step 3: Preferences"]
-    Wizard --> S4["Step 4: Summary &amp; Submit"]
-```
-
----
-
-## ⚙️ Lab 6: Backend Infrastructure & Pre-Flight Diagnostics
-
-```mermaid
-graph TD
-    A["setup_environment.py / .ps1"] --> B["Python 3.10+ Verification"]
-    B --> C["Isolated .venv Creation"]
-    C --> D["Dependency Pip Install (requirements.txt)"]
-    D --> E[".env Configuration Generation"]
-    E --> F["deploy_check.py (8 Diagnostic Health Checks)"]
-    F --> G["Ready for Production Django Deployment"]
-```
-
----
-
-## 🚀 How to Run & Verify
-
-### Viewing the Central Portal:
-Open `Rahul Raj/index.html` in your browser to launch and test all 6 lab sheets!
-
-### Running Lab 3 (React.js):
+### Testing Django Labs (Lab 7 & Lab 8)
 ```bash
-cd "Rahul Raj/Lab Sheet 3"
-npm run dev     # or preview dist/ with: npm run preview
+# Lab 7
+cd "Rahul Raj/Lab Sheet 7"
+python verify_lab7.py
+
+# Lab 8
+cd "Rahul Raj/Lab Sheet 8"
+python verify_lab8.py
 ```
 
-### Running Lab 4 (React Router SPA):
+### Testing Node / Express Labs (Lab 9 & Lab 10)
 ```bash
-cd "Rahul Raj/Lab Sheet 4"
-npm run dev     # or preview dist/ with: npm run preview
-```
+# Lab 9
+cd "Rahul Raj/Lab Sheet 9"
+npm test
 
-### Running Lab 5 (React Form Validation):
-```bash
-cd "Rahul Raj/Lab Sheet 5"
-npm run dev     # or preview dist/ with: npm run preview
+# Lab 10
+cd "Rahul Raj/Lab Sheet 10"
+cd backend && npm test
+cd .. && node benchmark.js
 ```
-
-### Running Lab 6 (Backend Environment & Diagnostics):
-```bash
-cd "Rahul Raj/Lab Sheet 6"
-python setup_environment.py       # Provision environment
-python deploy_check.py            # Run 8-point deployment health diagnostics
-python django_project/manage.py runserver  # Launch Django API
-```
-Navigate to `http://127.0.0.1:8000/api/health/` to view JSON health status.
