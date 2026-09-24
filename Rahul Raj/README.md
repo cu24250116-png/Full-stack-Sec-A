@@ -1,9 +1,9 @@
-# Full Stack Web Development Lab Submissions (Labs 01 &ndash; 10)
+# Full Stack Web Development Lab Submissions (Labs 01 &ndash; 11)
 
 **Student Name:** Rahul Raj  
 **Roll / Student ID:** cu24250116  
 **Course:** Full Stack Web Development Laboratory (Sec-A)  
-**Submissions Included:** Lab Sheet 01 through Lab Sheet 10  
+**Submissions Included:** Lab Sheet 01 through Lab Sheet 11  
 
 ---
 
@@ -80,21 +80,36 @@ Rahul Raj/
 │       ├── PUT /students/:id (Update record)
 │       └── DELETE /students/:id (Delete record)
 │
-└── Lab Sheet 10/                              # LAB SHEET 10: CampusConnect Enterprise Portal
+├── Lab Sheet 10/                              # LAB SHEET 10: CampusConnect Enterprise Portal
+│   ├── docker-compose.yml                     # Multi-container orchestration
+│   ├── benchmark.js                           # Redis latency benchmark (6.49x speedup)
+│   ├── backend/                               # Express + Socket.io + JWT + Redis
+│   │   ├── Dockerfile
+│   │   ├── src/ (server.js, authRoutes, eventRoutes, announcementRoutes)
+│   │   │   ├── Task 1: JWT Auth & RBAC (Admin, Student, 403 rejection)
+│   │   │   ├── Task 2: Real-time WebSockets (Socket.io broadcasts)
+│   │   │   ├── Task 3: Redis Caching (60s TTL & auto-invalidation)
+│   │   │   └── Task 5: Security Hardening (Helmet, rate-limit 5/15min)
+│   │   └── tests/integration.test.js          # Automated backend integration tests (6/6 passed)
+│   └── frontend/                              # React 18 + Vite SPA
+│       ├── Dockerfile (Multi-stage build)
+│       ├── dist/ (Pre-compiled production bundle)
+│       └── src/ (App.jsx, App.css, live notifications badge counter)
+│
+└── Lab Sheet 11/                              # LAB SHEET 11: CampusConnect Student Event & Resource Portal
     ├── docker-compose.yml                     # Multi-container orchestration
-    ├── benchmark.js                           # Redis latency benchmark (6.49x speedup)
-    ├── backend/                               # Express + Socket.io + JWT + Redis
+    ├── benchmark_indexing.js                  # Database query indexing benchmark (10k records)
+    ├── postman_collection.json                # Full Postman v2.1.0 API collection
+    ├── DEMO_WALKTHROUGH.md                    # 3-5 Minute demo video presentation script
+    ├── README.md                              # Comprehensive technical guide & ER diagram
+    ├── backend/                               # Express RESTful API + SQLite + JWT + RBAC
     │   ├── Dockerfile
-    │   ├── src/ (server.js, authRoutes, eventRoutes, announcementRoutes)
-    │   │   ├── Task 1: JWT Auth & RBAC (Admin, Student, 403 rejection)
-    │   │   ├── Task 2: Real-time WebSockets (Socket.io broadcasts)
-    │   │   ├── Task 3: Redis Caching (60s TTL & auto-invalidation)
-    │   │   └── Task 5: Security Hardening (Helmet, rate-limit 5/15min)
-    │   └── tests/integration.test.js          # Automated backend integration tests (6/6 passed)
+    │   ├── server.js, package.json
+    │   ├── src/ (auth, events, resources, dashboards, benchmarks, uploads)
+    │   └── tests/unit.test.js                 # 7 automated unit tests (7/7 passed)
     └── frontend/                              # React 18 + Vite SPA
-        ├── Dockerfile (Multi-stage build)
-        ├── dist/ (Pre-compiled production bundle)
-        └── src/ (App.jsx, App.css, live notifications badge counter)
+        ├── dist/                              # Pre-compiled production bundle
+        └── src/ (App.jsx, App.css, main.jsx)
 ```
 
 ---
@@ -113,13 +128,14 @@ Rahul Raj/
 | **Lab 08** | Template Inheritance | Django Blueprints & Logging | `verify_lab8.py` | ✅ **5/5 Passed** |
 | **Lab 09** | Student Record CRUD | Express.js + SQLite REST | `api_test.js` | ✅ **6/6 Passed** |
 | **Lab 10** | CampusConnect Portal | JWT, Socket.io, Redis, Docker | `integration.test.js` + `benchmark.js` | ✅ **6/6 Passed (6.49x speedup)** |
+| **Lab 11** | CampusConnect Full Portal | React 18, SQLite, JWT, RBAC, B-Tree Indexing | `unit.test.js` + `benchmark_indexing.js` | ✅ **7/7 Passed (10k index speedup)** |
 
 ---
 
 ## 🚀 How to Run & Verify Any Lab
 
 ### Open Central Portal Hub
-Open `Rahul Raj/index.html` in your web browser to launch and test any of the 10 lab deliverables.
+Open `Rahul Raj/index.html` in your web browser to launch and test any of the 11 lab deliverables.
 
 ### Testing Django Labs (Lab 7 & Lab 8)
 ```bash
@@ -142,4 +158,20 @@ npm test
 cd "Rahul Raj/Lab Sheet 10"
 cd backend && npm test
 cd .. && node benchmark.js
+```
+
+### Testing Lab 11 (CampusConnect Student Event & Resource Portal)
+```bash
+# Unit Tests (7/7 Passed)
+cd "Rahul Raj/Lab Sheet 11/backend"
+npm test
+
+# Database Indexing Benchmark (10,000 Records)
+cd "Rahul Raj/Lab Sheet 11"
+node benchmark_indexing.js
+
+# Launch Full-Stack Application
+cd "Rahul Raj/Lab Sheet 11/backend"
+npm start
+# Open http://localhost:5000 in your browser
 ```
