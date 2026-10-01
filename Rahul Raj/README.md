@@ -1,9 +1,9 @@
-# Full Stack Web Development Lab Submissions (Labs 01 &ndash; 11)
+# Full Stack Web Development Lab Submissions (Labs 01 &ndash; 12)
 
 **Student Name:** Rahul Raj  
 **Roll / Student ID:** cu24250116  
 **Course:** Full Stack Web Development Laboratory (Sec-A)  
-**Submissions Included:** Lab Sheet 01 through Lab Sheet 11  
+**Submissions Included:** Lab Sheet 01 through Lab Sheet 12  
 
 ---
 
@@ -110,7 +110,21 @@ Rahul Raj/
     └── frontend/                              # React 18 + Vite SPA
         ├── dist/                              # Pre-compiled production bundle
         └── src/ (App.jsx, App.css, main.jsx)
-```
+│
+└── Lab Sheet 12/                              # LAB SHEET 12: Coding Assessment (All 4 Problems)
+    ├── backend/                               # Problem 1: Secure Task Manager REST API (JWT, bcrypt, rate limit)
+    │   ├── server.js, package.json
+    │   ├── src/ (store.js, app.js, routes/, middleware/)
+    │   └── tests/api.test.js                  # 16 automated backend tests (16/16 passed)
+    ├── answers.sql                            # Problem 2: SQL Analytics (DENSE_RANK, Jan-Mar 2025, Atomic transaction)
+    ├── test_sql.js                            # Automated SQLite verification script (node:sqlite)
+    ├── frontend/                              # Problem 3: React Product Search with Cart (Vite, Debounce, AbortController)
+    │   ├── dist/                              # Pre-compiled production bundle
+    │   ├── src/ (App.jsx, App.css, CartContext, mockProducts, ProductCard, CartDrawer)
+    │   └── src/test/ProductSearchCart.test.jsx # 8 automated tests (8/8 passed)
+    ├── .github/workflows/ci.yml               # Problem 4(a): Matrix CI/CD workflow (Node 18 & 20, deploy on push)
+    ├── GIT_CICD_SOLUTIONS.md                  # Problem 4(a) & (b): Force-push recovery with git reflog & branch rules
+    └── README.md                              # Master assessment report
 
 ---
 
@@ -129,6 +143,7 @@ Rahul Raj/
 | **Lab 09** | Student Record CRUD | Express.js + SQLite REST | `api_test.js` | ✅ **6/6 Passed** |
 | **Lab 10** | CampusConnect Portal | JWT, Socket.io, Redis, Docker | `integration.test.js` + `benchmark.js` | ✅ **6/6 Passed (6.49x speedup)** |
 | **Lab 11** | CampusConnect Full Portal | React 18, SQLite, JWT, RBAC, B-Tree Indexing | `unit.test.js` + `benchmark_indexing.js` | ✅ **7/7 Passed (10k index speedup)** |
+| **Lab 12** | Coding Assessment (Problems 1-4) | Express JWT, SQL Window/Concurrency, React Cart SPA, Git CI/CD | Node Test Runner + SQLite + Vitest | ✅ **100% Verified (24/24 Tests Passed)** |
 
 ---
 
@@ -174,4 +189,20 @@ node benchmark_indexing.js
 cd "Rahul Raj/Lab Sheet 11/backend"
 npm start
 # Open http://localhost:5000 in your browser
+```
+
+### Testing Lab Sheet 12 (Coding Assessment - Problems 1 to 4)
+```bash
+# Problem 1: Secure Task Manager API Tests (16/16 Passed)
+cd "labsheet 12/Rahul Raj/backend"
+npm test
+
+# Problem 2: SQL Analytics & Concurrency Verification
+cd "labsheet 12/Rahul Raj"
+node test_sql.js
+
+# Problem 3: React Product Search & Cart Tests (8/8 Passed)
+cd "labsheet 12/Rahul Raj/frontend"
+npm test
+npm run build
 ```
