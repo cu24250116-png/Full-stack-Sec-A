@@ -144,6 +144,7 @@ Rahul Raj/
 | **Lab 10** | CampusConnect Portal | JWT, Socket.io, Redis, Docker | `integration.test.js` + `benchmark.js` | ✅ **6/6 Passed (6.49x speedup)** |
 | **Lab 11** | CampusConnect Full Portal | React 18, SQLite, JWT, RBAC, B-Tree Indexing | `unit.test.js` + `benchmark_indexing.js` | ✅ **7/7 Passed (10k index speedup)** |
 | **Lab 12** | Coding Assessment (Problems 1-4) | Express JWT, SQL Window/Concurrency, React Cart SPA, Git CI/CD | Node Test Runner + SQLite + Vitest | ✅ **100% Verified (24/24 Tests Passed)** |
+| **Practical Test (Set A)** | Student Records API & React Feedback Form | Node/Express In-Memory + React 18 Form Validation | `node:test` (15/15) + Vitest RTL (8/8) | ✅ **100% Verified (23/23 Tests Passed)** |
 
 ---
 
